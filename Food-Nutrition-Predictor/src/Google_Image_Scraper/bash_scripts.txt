@@ -1,0 +1,14 @@
+'Flattening out a folder'
+find */ -type f -exec bash -c 'file=${1#./}; echo mv "$file" "${file//\//_}"' _ '{}' \;
+
+'Deleting all empty folders'
+find */ -depth -type d -exec echo rmdir '{}' \;
+
+'Removing .ds_store files'
+find . -name '*.DS_Store*' -delete
+
+‘Renaming all files sequentially’
+find . -name '*.png' | awk 'BEGIN{ a=1 }{ printf "mv %s %04d.png\n", $0, a++ }' | bash
+
+'Adding suffix to file names'
+find . -type d -exec mv '{}' '{}'a \;
