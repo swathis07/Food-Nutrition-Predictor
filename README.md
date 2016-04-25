@@ -31,7 +31,7 @@ Top 2 and top 3 accuracy is calculated by looking at how often the true label is
 
 The normalized confusion matrix below summarizes true labels vs. the predicted labels.
 
-![cm_values](/Food-Nutrition-Predictor/data/cm_values.png "Confusion matrix values")
+![cm_values](/Food-Nutrition-Predictor/data/cm_values.png "Confusion matrix values" = 100x100)
 
 ![Confusion_Matrix](/Food-Nutrition-Predictor/data/confusion_matrix.png "Normalized confusion Matrix")
 
