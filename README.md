@@ -23,10 +23,11 @@ The Convolutional Neural Network I built has two convolutional layers and two fu
 
 ## Results
 
-The accuracy of my model was **73.38%**. I also looked at other metrics like top 2 accuracy and top 3 accuracy.
+The accuracy of my model was 73.38%. I also looked at other metrics like top 2 accuracy and top 3 accuracy.
 Top 2 and top 3 accuracy is calculated by looking at how often the true label is present in the top 2 and 3 predictions returned by the model respectively.
-**Top 2 accuracy: 84.13%**
-**Top 3 accuracy: 91.27%**
+* **Top 1 accuracy: 73.38%**
+* **Top 2 accuracy: 84.13%**
+* **Top 3 accuracy: 91.27%**
 
 The normalized confusion matrix below summarizes true labels vs. the predicted labels.
 
