@@ -20,6 +20,7 @@ table = table.to_dataframe()
 
 table['target_label'] = table['target'].apply(lambda x: inv_map[x])
 table['predicted_label'] = table['predicted'].apply(lambda x: inv_map[x])
+labels = sorted(class_map.keys())
 
 cm = confusion_matrix(table['target_label'], table['predicted_label'], labels)
 cm_normalized = np.round(cm.astype('float') / cm.sum(axis=1)[:, np.newaxis], 2)
