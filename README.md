@@ -2,7 +2,7 @@
 
 ## Motivation
 
-Fitness apps allow users to log their calorie intake. To do this, the user has to manually type in each item of food they had and serving size for each item they had after each meal. This can be a somewhat tedious process. This was the motivation for my project. Can we automate this process? Can an app identify what a food item is, from an image? Can it determine the serving size from the image? Being a prototype, I decided to focus on the question of identifying the food item from an image.
+Fitness apps allow users to log their calorie intake. To do this, the user has to manually type in each item of food they had and the serving size of each of the item after each meal. This can be a somewhat tedious process. This was the motivation for my project. Can we automate this process? Can an app identify what a food item is, from an image? Can it determine the serving size from the image? Being a prototype, I decided to focus on the question of identifying the food item from an image.
 
 ## Data
 
@@ -19,54 +19,19 @@ I built a Convolutional Neural Network using Graphlab. A convolutional network c
 
 ![CNN](/Food-Nutrition-Predictor/data/convolution_rep.png "Representation of Convolutional Neural Network")
 
-The Convolutional Neural Network I built has two convolutional layers and two full connected layers. Both convolutional layers have 64 filters each and both are downsampled using a Maxpool layer. A summary of the layers is below
+The Convolutional Neural Network I built has two convolutional layers and two fully connected layers. Both convolutional layers have 64 filters each and both are downsampled using a Maxpool layer. I augmented my dataset by randomly mirroring and randomly cropping some of the images. I used L2 regularization to reduce overfitting. Momentum was set to 0.9. The activation function used was rectifier.
 
-### network layers ###
-layer[0]: ConvolutionLayer
-  init_random = gaussian
-  padding = 0
-  stride = 2
-  num_channels = 64
-  num_groups = 1
-  kernel_size = 3
-layer[1]: RectifiedLinearLayer
-layer[2]: MaxPoolingLayer
-  padding = 0
-  stride = 2
-  kernel_size = 3
-layer[3]: ConvolutionLayer
-  init_random = gaussian
-  padding = 0
-  stride = 1
-  num_channels = 64
-  num_groups = 1
-  kernel_size = 3
-layer[4]: RectifiedLinearLayer
-layer[5]: MaxPoolingLayer
-  padding = 0
-  stride = 2
-  kernel_size = 3
-layer[6]: FlattenLayer
-layer[7]: FullConnectionLayer
-  init_sigma = 0.01
-  init_random = gaussian
-  init_bias = 0
-  num_hidden_units = 64
-layer[8]: RectifiedLinearLayer
-layer[9]: DropoutLayer
-  threshold = 0.5
-layer[10]: FullConnectionLayer
-  init_sigma = 0.01
-  init_random = gaussian
-  init_bias = 0
-  num_hidden_units = 8
-layer[11]: SoftmaxLayer
-### end network layers ###
+## Results
 
-### network parameters ###
-learning_rate = 0.001
-random_mirror = 1
-random_crop = 1
-l2_regularization = 0.0005
-metric = accuracy,recall@2
-momentum = 0.9
+The accuracy of my model was **73.38%**. I also looked at other metrics like top 2 accuracy and top 3 accuracy.
+Top 2 and top 3 accuracy is calculated by looking at how often the true label is present in the top 2 and 3 predictions returned by the model respectively.
+**Top 2 accuracy: 84.13%**
+**Top 3 accuracy: 91.27%**
+
+The normalized confusion matrix below summarizes true labels vs. the predicted labels.
+
+![cm_values](/Food-Nutrition-Predictor/data/cm_values.png "Confusion matrix values")
+
+![Confusion_Matrix](/Food-Nutrition-Predictor/data/confusion_matrix.png "Normalized confusion Matrix")
+
+As can be seen from the figure above, the darker blocks represent a higher percent of prediction. The values that lie on the diagonal represent the values whose predicted values were the same as the true value of the label. The figure shows that model performs fairly well in predicting the true label correctly.
