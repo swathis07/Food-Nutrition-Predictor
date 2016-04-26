@@ -36,3 +36,29 @@ The normalized confusion matrix below summarizes true labels vs. the predicted l
 ![Confusion_Matrix](/Food-Nutrition-Predictor/data/confusion_matrix.png "Normalized confusion Matrix")
 
 As can be seen from the figure above, the darker blocks represent a higher percent of prediction. The values that lie on the diagonal represent the values whose predicted values were the same as the true value of the label. The figure shows that model performs fairly well in predicting the true label correctly.
+
+
+I also calculated one vs all accuracy for a few of the classes to measure the AUC score. As expected, the model does significantly better in a one vs all scenario.
+
+![One_vs_all](/Food-Nutrition-Predictor/data/onevsall.png "One vs all" = 100x)
+
+Below are some cases that highlight the strength of the model.
+
+On the left are images of pizzas. The model is able to pick out the difficult cases like two halves of a pizzas. It is also able to correctly identify the pizza in spite of the extremely close up image.
+
+On the right are images of burgers. The model was able to identify burger from the plate that had burger and fries. The second prediction for that image was fries. It is also able to identify the burger in a box.
+
+![Hits](/Food-Nutrition-Predictor/data/hits.png "Hits")
+
+The model didn't perform so well on the images below.
+
+On the left are images of fries that the model thought were spaghetti and on the right are images of pancakes that the model thought were donuts. On these give examples, it seems reasonable that the model made those predictions.
+
+![Misses](/Food-Nutrition-Predictor/data/misses.png "Misses")
+
+
+## Future Work
+
+In addition to the neural network, I also built a Bag of Features model. In this method, I first build a vocabulary of features from the training set. Each image is then represented as a histogram of the dictionary of features. It is very similar to building bag of words in NLP. This model gave a top 3 accuracy of **87%**. For future work, I would like to ensemble it with the Convolutional Neural Network to improve the accuracy of the model.
+
+I would also like to be able extend the classifier to classify more types of food and eventually build out an app that returns nutritional information about the food item from the image.
