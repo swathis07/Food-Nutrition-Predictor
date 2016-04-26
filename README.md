@@ -40,7 +40,7 @@ As can be seen from the figure above, the darker blocks represent a higher perce
 
 I also calculated one vs all accuracy for a few of the classes to measure the AUC score. As expected, the model does significantly better in a one vs all scenario.
 
-![One_vs_all](/Food-Nutrition-Predictor/data/onevsall.png "One vs all" = 100x)
+![One_vs_all](/Food-Nutrition-Predictor/data/onevsall.png "One vs all")
 
 Below are some cases that highlight the strength of the model.
 
