@@ -52,7 +52,7 @@ On the right are images of burgers. The model was able to identify burger from t
 
 The model didn't perform so well on the images below.
 
-On the left are images of fries that the model thought were spaghetti and on the right are images of pancakes that the model thought were donuts. On these give examples, it seems reasonable that the model made those predictions.
+On the left are images of fries that the model thought were spaghetti and on the right are images of pancakes that the model thought were donuts. On these given examples, it seems reasonable that the model made the predictions that it did.
 
 ![Misses](/Food-Nutrition-Predictor/data/misses.png "Misses")
 
